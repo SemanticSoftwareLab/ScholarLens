@@ -1,0 +1,80 @@
+<!-- 
+ * ScholarLens - http://www.semanticsoftware.info/scholarlens
+ *
+ * This file is part of the ScholarLens component.
+ *
+ * Copyright (c) 2016, 2017, Semantic Software Lab, http://www.semanticsoftware.info,
+ * Friedrich Schiller University Jena, http://fusion.cs.uni-jena.de
+ *    Rene Witte
+ *    Bahar Sateli
+ *    Felicitas Loeffler
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3.0 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ -->
+<project name="Analysis" default="run" xmlns:ivy="antlib:org.apache.ivy.ant">
+    <!-- some variables used -->
+    <property name="lib.dir" value="${basedir}/lib" />
+	<property name="build.dir" value="${basedir}/bin" />
+	<property name="result.dir" value="${basedir}/result" />
+	<property name="src.dir" value="${basedir}/src" />
+
+   
+	<!-- paths used for compilation and run  -->
+    <path id="lib.path.id">
+        <fileset dir="${lib.dir}" />
+	</path>
+	
+    <path id="run.path.id">
+        <path refid="lib.path.id" />
+        <path location="${build.dir}" />
+    </path>
+
+   <ivy:settings file="ivysettings.xml" />
+
+    <!-- =================================
+          target: resolve
+         ================================= -->
+    <target name="resolve" description="--> resolve and retrieve dependencies with ivy">
+        <ivy:retrieve/>
+    </target>
+
+    
+    <!-- =================================
+          target: run
+         ================================= -->
+    <target name="run" depends="resolve" description="--> compile and run the project">
+       <mkdir dir="${result.dir}" />
+	   <mkdir dir="${build.dir}" />	 	   
+        <javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="lib.path.id" />
+        <java classpathref="run.path.id" classname="GenerateMetrics"/>
+    </target>
+
+	<target name="clean" description="--> clean the project">
+	        <delete includeemptydirs="true">
+	            <fileset dir="${basedir}">
+	            	<exclude name="src/**" />
+	            	<exclude name="data/**" />
+	            	<exclude name="build.xml" />
+			    	<exclude name="ivy.xml" />
+	            	<exclude name="ivysettings.xml" />
+	        	</fileset>
+	    	</delete>
+	    </target>
+	
+	<target name="clean-all" depends="clean" description="Purge ivy cache">
+	    <ivy:cleancache/>
+	</target>
+   
+</project>
