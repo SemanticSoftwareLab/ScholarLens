@@ -6,6 +6,11 @@ ProfileMaker accepts a [TDB](https://jena.apache.org/documentation/tdb/)-based d
 1. A LaTeX document that represents the profile in a tabular format.
 2. A [LimeSurvey](https://www.limesurvey.org) input file that can be directly imported into a LimeSurvey installation.
 
-## Directory Structure
+## How To Run
+ProfileMaker project contains an ANT [build file](../ProfileMaker/build.xml) that will automatically resolve all of its dependencies using Maven.
+
+The ProfileMaker tool needs two input arguments to function properly:
+* the `dataset` variable should point to the absolute path of a tdb-based triple containing profile triples. The default path is `/tmp/tdb`.
+* the `mode` indicates the output generation mode. You can choose between `survey` or `latex`. The default value is `survey`.
 
 
