@@ -7,8 +7,8 @@ Supplementary Materials for ScholarLense Journal Article
  * [Pipeline](../master/Tools/Pipeline) *(Text mining pipeline used to extract user competence records.)*
  * [ProfileMaker](../master/Tools/ProfileMaker) *(commandline tool to generate human-readable scholarly profiles)*
 * **Knowledge-base**
- * [triples.zip](../master/knowledge-base/triples.zip) *(RDF-based knowledge base of semantic scholarly profiles)*
- * [LICENSE](../master/knowledge-base/LICENSE) *(knowledge base license file)*
+ * [triples.zip](../master/Knowledge-base/triples.zip) *(RDF-based knowledge base of semantic scholarly profiles)*
+ * [LICENSE](../master/Knowledge-base/LICENSE) *(knowledge base license file)*
 * **Evaluation**
  * Templates *(LimeSurvey-compatible templates used to create profiles)*
  * Results *(Exported results from the evaluation surveys)*
