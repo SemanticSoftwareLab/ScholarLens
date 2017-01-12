@@ -28,4 +28,4 @@ run:
   [input] Please indicate an export mode (survey or latex): (Press enter to the use defaults) [survey]
 ```
 
-The output files are stored in the root directory of the ProfileMaker project.
+The output files will be stored in the root directory of the ProfileMaker project.
