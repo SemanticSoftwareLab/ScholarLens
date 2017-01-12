@@ -13,4 +13,19 @@ The ProfileMaker tool needs two input arguments to function properly:
 * the `dataset` variable should point to the absolute path of a tdb-based triple containing profile triples. The default path is `/tmp/tdb`.
 * the `mode` indicates the output generation mode. You can choose between `survey` or `latex`. The default value is `survey`.
 
+To run the ProfileMaker using commandline, make sure you have [Ant](http://ant.apache.org) installed on your system. Enter the following command in your console:
 
+```
+$ ant run
+```
+
+After resolving the dependencies and compiling the tool, it will ask you to input the arguments explained above:
+
+```
+run:
+  [input] Please the absolute path to the triplestore: (Press enter to use the defaults) [/tmp/tdb]
+    
+  [input] Please select an export mode (survey or latex): (Press enter to the use defaults) [survey]
+```
+
+The output files are stored in the root directory of the ProfileMaker project.
