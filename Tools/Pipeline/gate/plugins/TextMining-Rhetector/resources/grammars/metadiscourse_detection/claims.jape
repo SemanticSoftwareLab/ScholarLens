@@ -1,0 +1,100 @@
+//
+// Rhetorical Entity Extraction -- http://www.semanticsoftware.info/rhetector
+//
+// This file is part of the Rhetector component.
+//
+// Copyright (c) 2015, Semantic Software Lab, http://www.semanticsoftware.info
+//    Rene Witte
+//    Bahar Sateli
+//
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 3.0 of the License, or (at your option) any later version.
+//
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+//
+
+Phase:	Triggers
+Input: Token Lookup Deictic
+
+Options: control = appelt debug=true
+
+Rule: ClaimNameTrigger
+// our ReqWiki system is...
+(
+	{Token.string =~ "^[Oo]ur$"} {Token.category == "NNP"} ({Lookup.majorType == "ENTITY"})?  ({Token.category == "RB"})? ({Token.category == "VBZ"} | {Token.category == "VBD"}) {Token.category =~ "JJ[RS]"}
+)
+:mention
+-->
+ :mention.ClaimAnnotation = {rule = "ClaimVerbTrigger", content = :mention@cleanString, URI = "http://salt.semanticauthoring.org/ontologies/sro#Claim"}
+
+Rule: Claim2
+// our ReqWiki system is faster than X...
+(
+	{Token.string =~ "^[Oo]ur$"} ({Token.category == "NNP"})? {Lookup.majorType == "ENTITY"} {Token.category == "VBZ"} {Token.category == "DT"} {Token.category =~ "JJ[RS]"}
+)
+:mention
+-->
+ :mention.ClaimAnnotation = {rule = "Claim2", content = :mention@cleanString, URI = "http://salt.semanticauthoring.org/ontologies/sro#Claim"}
+
+Rule: Claim3
+// our approach is compatible with
+(
+	{Token.string =~ "^[Oo]ur$"} ({Token.category == "NNP"})? {Lookup.majorType == "ENTITY"} {Token.category == "VBZ"} {Token.category == "JJ"}
+)
+:mention
+-->
+ :mention.ClaimAnnotation = {rule = "Claim3", content = :mention@cleanString, URI = "http://salt.semanticauthoring.org/ontologies/sro#Claim"}
+
+Rule: Claim4
+// our approach is compatible with
+(
+	{Token.string =~ "^[Oo]ur$"} ({Token.category == "NNP"})? {Lookup.majorType == "ENTITY"} ({Token.category == "VBZ"} | {Token.category == "VBD"})
+)
+:mention
+-->
+ :mention.ClaimAnnotation = {rule = "Claim4", content = :mention@cleanString, URI = "http://salt.semanticauthoring.org/ontologies/sro#Claim"}
+
+Rule: Claim5
+// We have found that...
+(
+	{Token.category == "PRP", Token.string =~ "[Ww]e"} ({Token.category == "VBP"})? {Lookup.minorType == "MENTAL_OP"}
+)
+:mention
+-->
+ :mention.ClaimAnnotation = {rule = "Claim5", content = :mention@cleanString, URI = "http://salt.semanticauthoring.org/ontologies/sro#Claim"}
+
+Rule: Claim6
+// Our study also shows...
+(
+	{Deictic} ({Token.category == "RB"})? {Lookup.minorType == "MENTAL_OP"}
+)
+:mention
+-->
+ :mention.ClaimAnnotation = {rule = "Claim6", content = :mention@cleanString, URI = "http://salt.semanticauthoring.org/ontologies/sro#Claim"}
+
+Rule: Claim7
+// This work is an important first step...
+(
+	{Deictic} {Token.category == "VBZ"} ({Token.category == "DT"})? ({Token.category == "JJ"})* {Token.category == "NN"}
+)
+:mention
+-->
+ :mention.ClaimAnnotation = {rule = "Claim7", content = :mention@cleanString, URI = "http://salt.semanticauthoring.org/ontologies/sro#Claim"}
+
+
+Rule: Claim8
+// This work is an important first step...
+(
+	{Deictic} {Token.category == "VBZ"} {Token.category == "JJ"}
+)
+:mention
+-->
+ :mention.ClaimAnnotation = {rule = "Claim8", content = :mention@cleanString, URI = "http://salt.semanticauthoring.org/ontologies/sro#Claim"}

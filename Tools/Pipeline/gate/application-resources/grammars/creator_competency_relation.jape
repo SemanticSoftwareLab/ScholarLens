@@ -1,0 +1,31 @@
+Imports:{
+	import gate.relations.RelationSet;
+	import gate.relations.Relation;
+}
+
+Phase: Creator_Competency_Relation
+Input: Creator
+
+Options: control = once debug=true
+
+Rule: creator_competency_relation(
+	{Creator}
+):mention
+-->
+{
+	try{
+        AnnotationSet set = (gate.AnnotationSet) bindings.get("mention");
+        Annotation creator = set.iterator().next();
+        
+        AnnotationSet defaultSet = doc.getAnnotations();
+        AnnotationSet competencies = defaultSet.get("DBpediaNE");
+        
+        RelationSet relationSet = defaultSet.getRelations();
+        for(Annotation competency : competencies){
+			Relation newRelation = relationSet.addRelation("CompetencyRecord", new int[] {creator.getId(), competency.getId()});
+			newRelation.getFeatures().put("type", "http://www.intelleo.eu/ontologies/competences/ns/CompetenceRecord");
+        }
+    }catch(Exception e){
+        e.printStackTrace();
+    }
+}

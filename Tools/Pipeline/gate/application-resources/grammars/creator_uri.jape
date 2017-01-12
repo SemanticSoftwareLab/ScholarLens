@@ -1,0 +1,26 @@
+Imports:{
+	import java.net.URLEncoder;
+	import java.net.URL;
+}
+
+Phase: Creator_URI_generator
+Input: Token
+
+Options: control = once debug=true
+
+Rule: creator_uri_generator(
+	{Token}
+):mention
+-->
+{
+	String creator_name = ctx.getCorpus().getName().trim();
+	try{
+		FeatureMap features = Factory.newFeatureMap();
+		String creator_uri = "http://semanticsoftware.info/lodexporter/creator/" + URLEncoder.encode(creator_name, "UTF-8");
+		features.put("URI", creator_uri);
+		features.put("creator_name", creator_name);
+		outputAS.add(0L, 10L,"Creator",features);
+	}catch (Exception e){
+		e.printStackTrace();
+	}
+}

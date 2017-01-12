@@ -1,0 +1,14 @@
+<!-- creole.xml Rhetector -->
+<!--  Bahar Sateli, 2015 -->
+<CREOLE-DIRECTORY ID="Rhetector" VERSION="1.0" GATE-MIN="8.1"
+        DESCRIPTION="Rhetorical Entity Detector" >
+
+<!--
+This file just references the JAR file that contains the compiled resource.
+Configuration is contained in the @CreoleResource annotation on 
+info.semanticsoftware.rhetector.*
+-->
+
+  <JAR SCAN="true">Rhetector.jar</JAR>
+
+</CREOLE-DIRECTORY>

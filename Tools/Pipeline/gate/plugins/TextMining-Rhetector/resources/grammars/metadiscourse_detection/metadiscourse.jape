@@ -1,0 +1,89 @@
+//
+// Rhetorical Entity Extraction -- http://www.semanticsoftware.info/rhetector
+//
+// This file is part of the Rhetector component.
+//
+// Copyright (c) 2015, Semantic Software Lab, http://www.semanticsoftware.info
+//    Rene Witte
+//    Bahar Sateli
+//
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 3.0 of the License, or (at your option) any later version.
+//
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+//
+
+Phase: Metadiscourse
+Input: Lookup Token Deictic
+
+Options: control = appelt debug=true
+
+Rule: MetadiscourseDeicticAction
+// This paper demonstrates...
+(
+	{Deictic}
+	({Token.kind == "punctuation"})?
+	{Lookup.majorType == "ACTION"}
+        {!Token.string == "by"}
+)
+:mention
+-->
+:mention.Metadiscourse = {rule = "DeicticAction", content = :mention@string}
+
+Rule: MetadiscoursePronAdvAction
+// We introduce ...
+// We briefly describe...
+(
+	({Token.category == "PRP", Token.root == "we", Token.orth == "upperInitial"} | {Token.category == "PRP", Token.root == "i", Token.orth == "upperInitial"})
+	({Token.category == "RB"})?
+	{Lookup.majorType == "ACTION"}
+)
+:mention
+-->
+:mention.Metadiscourse = {rule = "PronAdvAction", content = :mention@string}
+
+Rule: MetadiscoursePronAdvAction
+// We first describe...
+(
+	({Token.category == "PRP", Token.root == "we", Token.orth == "upperInitial"} | {Token.category == "PRP", Token.root == "i", Token.orth == "upperInitial"})
+	{Lookup.minorType == "ordinal"}
+	{Lookup.majorType == "ACTION"}
+)
+:mention
+-->
+:mention.Metadiscourse = {rule = "PronAdvAction", content = :mention@string}
+
+Rule: MetadiscourseDeicticPrepVerb
+// In this paper, we briefly introduce...
+(
+	{Deictic}
+	({Token.kind == "punctuation"})?
+	({Token.category == "PRP", Token.root == "we"} | {Token.category == "PRP", Token.root == "i"})
+	({Token.category == "RB"})?
+	({Token.category == "VBP", Token.root == "have"})?
+	{Lookup.majorType == "ACTION"}
+)
+:mention
+-->
+:mention.Metadiscourse = {rule = "DeicticPrepAction", content = :mention@string}
+
+Rule: MetadiscourseDeictic
+// Here, we propose...
+(
+	{Token.category == "RB"}
+	({Token.kind == "punctuation"})?
+	({Token.category == "PRP", Token.root == "we"} | {Token.category == "PRP", Token.root == "i"})
+	({Token.category == "VBP", Token.root == "have"})?
+	{Lookup.majorType == "ACTION"}
+)
+:mention
+-->
+:mention.Metadiscourse = {rule = "AdvPrepAction", content = :mention@string}

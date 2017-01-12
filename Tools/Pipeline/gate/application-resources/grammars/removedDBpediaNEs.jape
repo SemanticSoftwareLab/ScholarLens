@@ -1,0 +1,15 @@
+phase: RemoveFalseDBpediaNEs
+Input: DBpediaNE
+options: control=all
+
+Rule: removeNE
+(
+  {DBpediaNE@string =~ "[Ff]igures?", DBpediaNE.URI == "http://dbpedia.org/resource/Action_figure"}
+ |{DBpediaNE@string =~ "[Ff]igures?", DBpediaNE.URI == "http://dbpedia.org/resource/Body_image"}
+ |{DBpediaNE@string =~ "[Ff]igures?", DBpediaNE.URI == "http://dbpedia.org/resource/Figure_painting"}
+ |{DBpediaNE@string =~ "[Ff]ig", DBpediaNE.URI == "http://dbpedia.org/resource/Ficus"}
+ |{DBpediaNE@string =~ "[Tt]ab", DBpediaNE.URI == "http://dbpedia.org/resource/Tab_(GUI)"}
+ |{DBpediaNE@string == "Table", DBpediaNE.URI == "http://dbpedia.org/resource/Tabula_Peutingeriana"}
+ |{DBpediaNE@string == "al", DBpediaNE.URI == "http://dbpedia.org/resource/Aluminium"}
+):ignore
+--> :ignore.Ignored = { kind = "DBpediaNE" }

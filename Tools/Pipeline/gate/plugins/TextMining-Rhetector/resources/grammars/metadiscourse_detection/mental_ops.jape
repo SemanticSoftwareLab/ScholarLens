@@ -1,0 +1,12 @@
+Phase: MentalOps
+Input: Lookup Token
+
+Options: control = appelt debug=true
+
+Rule: MentalOpsLookup
+(
+	{Lookup.majorType == "MENTAL_OP"}
+)
+:mention
+-->
+ :mention.Mental_Op = {rule = "MentalOpsLookup", content = :mention@string}

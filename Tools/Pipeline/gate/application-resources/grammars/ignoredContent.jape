@@ -1,0 +1,22 @@
+phase: MarkupIgnoredContent
+Input: base-name caption disp-formula h1 h2 h3 h4 job meta outsider ref
+ref-list table
+options: control=all
+
+Rule: ignoredContent
+(
+	{base-name}
+	|{caption}
+	|{disp-formula}
+	|{h1}
+	|{h2}
+	|{h3}
+	|{h4}
+	|{job}
+	|{meta}
+	|{outsider}
+	|{ref}
+	|{ref-list}
+	|{table}
+):ignore
+--> :ignore.Ignored = { kind = "PDFX" }

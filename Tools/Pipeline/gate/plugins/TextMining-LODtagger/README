@@ -1,0 +1,67 @@
+DBpediaTagger
+http://www.semanticsoftware.info/lodtagger
+
+Release 1.0, 24.07.2015
+
+Copyright (c) 2015, Semantic Software Lab, http://www.semanticsoftware.info
+	Rene Witte
+	Bahar Sateli
+
+
+FILES
+=====
+
+DBpediaTagger/
+  |
+  +-- build.properties
+  |     property definitions that control the build process go in here,
+  |     in particular, make sure that gate.home points to your copy of GATE
+  +-- build.xml
+  |     Ant build file for building the DBpediaTagger plugin
+  +-- COPYING
+  |     GNU GPL v3 License for DBpediaTagger
+  +-- COPYING.LESSER
+  |     GNU LGPL v3 License for DBpediaTagger
+  +-- creole.xml
+  |     plugin configuration file for GATE 
+  +-- doc/
+  |     DBpediaTagger end-user documentation, Javadocs
+  +-- DBpediaTaggerDemo.jar 
+  |     the DBpediaTagger demo pipeline for the GATE plugin manager containing the DBpediaTagger PR
+  +-- DBpediaTagger.jar 
+  |     JAR archive for the GATE plugin manager containing the DBpediaTagger PR
+  +-- ivy.xml
+  |     Ivy script for automatic resolution of the plugin dependencies
+  +-- lib/
+  |     folder for external dependency libraries
+  +-- package
+  |     Example pipeline for DBpediaTagger with NP filtering 
+  +-- README
+  |     this file
+  +-- resources/
+  |     optional files used by the plugin. Currently, holds the noun phrase filtering grammar
+  +-- src/
+        source code for classes interacting with DBpedia Spotlight endpoint
+
+
+QUICK START GUIDE
+=================
+For the impatient, here's the quick start guide:
+1. Start GATE (v8 or better), go to the plugin manager
+2. Install DBpediaTagger through the Semantic Software Lab repository
+3. Enable the new DBpediaTagger plugin
+4. Load the example pipeline from "Ready Made Applications"
+
+For more information, read the documentation (and the GATE user's guide).
+
+
+LICENSE
+=======
+DBpediaTagger is licensed under the GNU Lesser General Public License v3 (LGPL3),
+see the LICENSE file or http://www.gnu.org/licenses/lgpl-3.0.en.html
+
+
+SUPPORT
+=======
+For questions, comments, or even success reports, please post in the SSL Forum 
+http://www.semanticsoftware.info/forums/tools-resources-forum/durm-corpus-wiki-tools

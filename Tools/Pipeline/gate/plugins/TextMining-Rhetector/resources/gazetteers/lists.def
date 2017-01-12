@@ -1,0 +1,7 @@
+deictic.lst:DEICTIC
+verbs.lst:ACTION:MENTAL_OP
+presentation_action.lst:ACTION:PRESENTATION
+research_action.lst:ACTION:RESEARCH
+solution_action.lst:ACTION:SOLUTION
+change_action.lst:ACTION:CHANGE
+entity_triggers.lst:ENTITY
