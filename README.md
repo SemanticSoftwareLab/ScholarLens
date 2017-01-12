@@ -1,5 +1,5 @@
-# Supplements-ScholarLense
-Supplementary Materials for ScholarLense Journal Article
+# Supplements-ScholarLens
+Supplementary Materials for our ScholarLens Journal Article
 
 ## Repository Structure
 * **Tools**
