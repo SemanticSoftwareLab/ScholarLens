@@ -1,5 +1,7 @@
 # Supplements-ScholarLens
-Supplementary Materials for our ScholarLens Journal Article
+This repository contains the supplementary Materials for our ScholarLens journal article currently under review.
+
+ScholarLens provides an automatic workflow, entirely composed of open source tools, to generate semantic profiles for scholars. The profiles represent the competences of scholar, automatically extracted from their available publications. The output of the workflow is a knowledge base of semantic profiles, modelled using the Resource Description Framework (RDF) and inter-linked with the web of Open Linked Data (LOD).
 
 ## Repository Structure
 * **Tools**
