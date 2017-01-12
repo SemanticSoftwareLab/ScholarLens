@@ -87,12 +87,12 @@
     
     <target name="run" depends="jar">
         <input
-            message="Please the absolute path to the triplestore: (Press enter to use the defaults)"
+            message="Please enter the absolute path of the triplestore: (Press enter to use the defaults)"
             addproperty="dataset"
             defaultvalue="/tmp/tdb" />
         
         <input
-        message="Please select an export mode (survey or latex): (Press enter to the use defaults)"
+        message="Please indicate an export mode (survey or latex): (Press enter to the use defaults)"
         addproperty="mode"
         defaultvalue="survey" />
 
