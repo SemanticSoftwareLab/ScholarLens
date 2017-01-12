@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * ScholarLens - http://www.semanticsoftware.info/scholarlens
+ *
+ * This file is part of the ScholarLens component.
+ *
+ * Copyright (c) 2016, 2017, Semantic Software Lab, http://www.semanticsoftware.info,
+ * Friedrich Schiller University Jena, http://fusion.cs.uni-jena.de
+ *    Rene Witte
+ *    Bahar Sateli
+ *    Felicitas Loeffler
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3.0 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ -->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:map="http://lod.semanticsoftware.info/mapping/mapping#"
+    xmlns:pubo="http://lod.semanticsoftware.info/pubo/pubo#"
+    xmlns:cnt="http://www.w3.org/2011/content#"
+    xmlns:c="http://www.intelleo.eu/ontologies/competences/ns/"
+    xmlns:um="http://intelleo.eu/ontologies/user-model/ns/"
+    xmlns:oa="http://www.w3.org/ns/oa#"
+    xmlns:doco="http://purl.org/spar/doco/"
+    xmlns:gold="http://purl.org/linguistics/gold/"
+    xmlns:sro="http://salt.semanticauthoring.org/ontologies/sro#">
+    
+    <rdf:Description rdf:about="map:NounPhraseLinkedNamedEntityRelationMapping">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:type rdf:resource="pubo:containsNE"/>
+        <map:domain rdf:resource="map:GATENounPhrase"/>
+        <map:range rdf:resource="map:GATECompetence"/>
+        <map:GATEattribute>contains</map:GATEattribute>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:RhetoricalEntityLinkedNamedEntityRelationMapping">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:type rdf:resource="pubo:containsNE"/>
+        <map:domain rdf:resource="map:GATERhetoricalEntity"/>
+        <map:range rdf:resource="map:GATECompetence"/>
+        <map:GATEattribute>contains</map:GATEattribute>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:SentenceLinkedNamedEntityRelationMapping">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:type rdf:resource="pubo:containsNE"/>
+        <map:domain rdf:resource="map:GATESentence"/>
+        <map:range rdf:resource="map:GATECompetence"/>
+        <map:GATEattribute>contains</map:GATEattribute>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:GATEContentMapping">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:type rdf:resource="cnt:chars"/>
+        <map:GATEattribute>content</map:GATEattribute>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:GATEStartOffsetMapping">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:type rdf:resource="oa:start"/>
+        <map:GATEattribute>startOffset</map:GATEattribute>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:GATEEndOffsetMapping">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:type rdf:resource="oa:end"/>
+        <map:GATEattribute>endOffset</map:GATEattribute>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:GATELODRefFeatureMapping">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:type rdf:resource="rdfs:isDefinedBy"/>
+        <map:GATEfeature>URI</map:GATEfeature>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:GATESimilarityScoreMapping">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:type rdf:resource="pubo:hasSimilarityScore"/>
+        <map:GATEfeature>similarityScore</map:GATEfeature>
+    </rdf:Description>
+    
+    <!-- the new ones -->
+    <rdf:Description rdf:about="map:GATEURIFeatureMapping">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:type rdf:resource="rdf:type"/>
+        <map:GATEfeature>URI1</map:GATEfeature>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:GATECompetence">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:hasMapping rdf:resource="map:GATELODRefFeatureMapping"/>
+        <map:hasMapping rdf:resource="map:GATEContentMapping"/>
+        <map:hasMapping rdf:resource="map:GATEStartOffsetMapping"/>
+        <map:hasMapping rdf:resource="map:GATEEndOffsetMapping"/>
+        <map:hasMapping rdf:resource="map:GATESimilarityScoreMapping"/>
+        <map:baseURI rdf:resource="http://semanticsoftware.info/lodexporter/"/>
+        <map:type rdf:resource="c:Competence"/>
+        <map:GATEtype>DBpediaNE</map:GATEtype>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:GATENounPhrase">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:hasMapping rdf:resource="map:GATEContentMapping"/>
+        <map:hasMapping rdf:resource="map:GATEStartOffsetMapping"/>
+        <map:hasMapping rdf:resource="map:GATEEndOffsetMapping"/>
+        <map:baseURI rdf:resource="http://semanticsoftware.info/lodexporter/"/>
+        <map:type rdf:resource="gold:NounPhrase"/>
+        <map:GATEtype>NP</map:GATEtype>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:GATECreator">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:hasMapping rdf:resource="map:GATELODRefFeatureMapping"/>
+        <map:baseURI rdf:resource="http://semanticsoftware.info/lodexporter/"/>
+        <map:type rdf:resource="um:User"/>
+        <map:GATEtype>Creator</map:GATEtype>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:GATERhetoricalEntity">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:hasMapping rdf:resource="map:GATEContentMapping"/>
+        <map:hasMapping rdf:resource="map:GATEStartOffsetMapping"/>
+        <map:hasMapping rdf:resource="map:GATEEndOffsetMapping"/>
+        <map:hasMapping rdf:resource="map:GATEFeatureMapping"/>
+        <map:hasMapping rdf:resource="map:GATEURIFeatureMapping"/>
+        <map:baseURI rdf:resource="http://semanticsoftware.info/lodexporter/"/>
+        <map:type rdf:resource="sro:RhetoricalElement"/>
+        <map:GATEtype>RhetoricalEntity</map:GATEtype>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="map:GATESentence">
+        <rdf:type rdf:resource="map:Mapping"/>
+        <map:hasMapping rdf:resource="map:GATEStartOffsetMapping"/>
+        <map:hasMapping rdf:resource="map:GATEEndOffsetMapping"/>
+        <map:baseURI rdf:resource="http://semanticsoftware.info/lodexporter/"/>
+        <map:type rdf:resource="doco:Sentence"/>
+        <map:GATEtype>Sentence</map:GATEtype>
+    </rdf:Description>
+    
+</rdf:RDF>
+
