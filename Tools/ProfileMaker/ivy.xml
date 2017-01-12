@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * ScholarLens - http://www.semanticsoftware.info/scholarlens
+ *
+ * This file is part of the ScholarLens component.
+ *
+ * Copyright (c) 2016, 2017, Semantic Software Lab, http://www.semanticsoftware.info,
+ * Friedrich Schiller University Jena, http://fusion.cs.uni-jena.de
+ *    Rene Witte
+ *    Bahar Sateli
+ *    Felicitas Loeffler
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3.0 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ -->
+
+
+<ivy-module version="2.0">
+    <info organisation="info.semanticsoftware" module="(Human-readable) Semantic Scholarly Profile Generation" revision="1.0"/>
+    <dependencies>
+        <!-- Apache Jena 2.13 -->
+        <dependency org="org.apache.jena" name="jena-arq" rev="2.13.0"/>
+        <dependency org="org.apache.jena" name="jena-core" rev="2.13.0"/>
+        <dependency org="org.apache.jena" name="jena-iri" rev="1.1.2"/>
+        
+        <!-- Apache Commons Codec 1.6 -->
+        <dependency org="commons-codec" name="commons-codec" rev="1.6"/>
+
+        <!-- Apache Commons Lang3 3.3.2 -->
+        <dependency org="org.apache.commons" name="commons-lang3" rev="3.3.2"/>
+        
+        <!-- Apache Commons CSV 1.0 -->
+        <dependency org="org.apache.commons" name="commons-csv" rev="1.0"/>
+        
+        <!-- Apache HttpClient 4.2.6 -->
+        <dependency org="org.apache.httpcomponents" name="httpclient" rev="4.2.6"/>
+
+        <!-- Apache HttpCore 4.2.5 -->
+        <dependency org="org.apache.httpcomponents" name="httpcore" rev="4.2.5"/>
+
+    </dependencies>
+</ivy-module>
+
