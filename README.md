@@ -9,7 +9,7 @@ ScholarLens provides an automatic workflow, entirely composed of open source too
  * [Pipeline](../master/Tools/Pipeline) *contains the text mining pipeline used to extract user competence records.*
  * [ProfileMaker](../master/Tools/ProfileMaker) *contains the commandline tool to generate human-readable scholarly profiles.*
 * **Knowledge-base**
- * [triples.zip](../master/Knowledge-base/triples.zip) *contains RDF-based knowledge base of semantic scholarly profiles*
+ * [triples.zip](../master/Knowledge-base/triples.zip) *contains the RDF-based knowledge base of semantic scholarly profiles.*
  * [LICENSE](../master/Knowledge-base/LICENSE) *is the knowledge base license file.*
 * **Evaluation**
  * Templates *contains the custom LimeSurvey-compatible templates used to create profiles.*
