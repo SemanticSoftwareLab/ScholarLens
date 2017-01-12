@@ -3,6 +3,7 @@ Supplementary Materials for ScholarLense Journal Article
 
 ## Repository Structure
 * **Tools**
+ * [Pipeline](../master/tools/Pipeline) *(Text mining pipeline used to extract user competence records.)*
  * [ProfileMaker](../master/tools/ProfileMaker) *(commandline tool to generate human-readable scholarly profiles)*
  * [Analysis](../master/tools/Analysis) *(commandline tool to analyze the results from surveys)*
 * **Knowledge-base**
