@@ -3,5 +3,5 @@ This directory contains the text mining pipeline used to extract relevant inform
 
 ### License
 
-The text mining pipeline is distributed under the terms of the [GNU LGPL v3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html). You can find a copy of the license in the [pipeline](../master/pipeline/gate) folder.
+The text mining pipeline is distributed under the terms of the [GNU LGPL v3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html). You can find a copy of the license in the [pipeline](../Pipeline/gate) folder.
 
