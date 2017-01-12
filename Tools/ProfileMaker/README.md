@@ -23,9 +23,9 @@ After resolving the dependencies and compiling the tool, it will ask you to inpu
 
 ```
 run:
-  [input] Please the absolute path to the triplestore: (Press enter to use the defaults) [/tmp/tdb]
+  [input] Please enter the absolute path of the triplestore: (Press enter to use the defaults) [/tmp/tdb]
     
-  [input] Please select an export mode (survey or latex): (Press enter to the use defaults) [survey]
+  [input] Please indicate an export mode (survey or latex): (Press enter to the use defaults) [survey]
 ```
 
-The output files are stored in the root directory of the ProfileMaker project.
+The output files will be stored in the root directory of the ProfileMaker project.
