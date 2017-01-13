@@ -35,7 +35,7 @@ Start the tool with the Ant task
 ```
 ant run
 ```
-from the folder where the build.xml is located. The program will ask for which threshold you want to run the analysis. The threshold is related to the computation of Precision@k and Mean Average Precision and can be in the range of 0-3 refering to the three possible competence ratings _Irrelevant_ (0), _General_ (1), _Technical_ (2), _Research_ (3). Since Precision@k and MAP are binary metrics ( relevant/non-relevant), we need to define a threshold what should be considered as relevant. For instance, a threshold _0_ would consider all ratings above _0_ as relevant (all _General_, _Technical_, _Research_ ratings). For an equal distribution a threshold of _1_ would be better which would consider all ratings above _1_ as relevant.
+from the folder where the build.xml is located. The program will ask for which threshold you want to run the analysis. The threshold is related to the computation of Precision@k and Mean Average Precision and can be in the range of 0-3 refering to the three possible competence ratings _Irrelevant_ (0), _General_ (1), _Technical_ (2), _Research_ (3). Since Precision@k and MAP are binary metrics ( relevant/non-relevant), we need to define a threshold what should be considered as relevant. For instance, a threshold _0_ would consider all ratings above _0_ as relevant (all _General_, _Technical_, _Research_ ratings). For an equal distribution a threshold of _1_ would consider all ratings above _1_ as relevant.
 
 ## Result
 The tool creates a _result_ folder and generates a new metrics file. It sorts the competences horizontally and computes the different metrics.
