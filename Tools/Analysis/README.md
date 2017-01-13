@@ -6,6 +6,9 @@ The Analysis Tool is a simple command-line tool written in Java to compute diffe
 ## Prerequistes
 The analysis tool requires [Apache Ant](https://ant.apache.org/) and [Apache Ivy](https://ant.apache.org/ivy/) and has been developed and tested with JAVA 8.
 
+## Download
+You can download the Analysis Tool including the source code form this [Github Repository](../Analysis)
+
 ## Excel Structure
 The analysis tool comes with a data folder where all Excel files have to be put in.
 
