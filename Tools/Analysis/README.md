@@ -24,7 +24,7 @@ These columns can be configured in LimeSurvey but the Analysis tool assumes that
 
 | Original competence rank	| What is your competency with respect to Algorithm? | Comment |
 | :------------------------:  | :-----------------------------------------------: |:------:|
-|14	Research | Research - a topic that you know well and you are/have been doing research on | |
+|14	 | Research - a topic that you know well and you are/have been doing research on | |
 
 
 Thus, in our example file a competence always spans 3 columns where the first column contains the actual rank which is hidden for the user, the second column denotes the user rating for a given competence and the third column contains user comments. In our case, the first two columns are always filled (mandatory) but comments are optional. In total the example structure comprises 50 competences which results in 150 + 8 final columns. 
@@ -35,7 +35,7 @@ Start the tool with the Ant task
 ```
 ant run
 ```
-from the folder where the build.xml is located. The program will ask for which threshold you want to run the analysis. The threshold is related to the computation of Precision@k and Mean Average Precision and can be in the range of 0-3 refering to the three possible competence ratings _Irrelevant_, _General_, _Technical_, _Research_.
+from the folder where the build.xml is located. The program will ask for which threshold you want to run the analysis. The threshold is related to the computation of Precision@k and Mean Average Precision and can be in the range of 0-3 refering to the three possible competence ratings _Irrelevant_ (0), _General_ (1), _Technical_ (2), _Research_ (3). Since Precision@k and MAP are binary metrics ( relevant/non-relevant), we need to define a threshold what should be considered as relevant. For instance, a threshold _0_ would consider all ratings above _0_ as relevant (all _General_, _Technical_, _Research_ ratings). For an equal distribution a threshold of _1_ would be better which would consider all ratings above _1_ as relevant.
 
 ## Result
 The tool creates a _result_ folder and generates a new metrics file. It sorts the competences horizontally and computes the different metrics.
