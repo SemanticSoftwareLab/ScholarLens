@@ -10,6 +10,13 @@ The analysis tool requires [Apache Ant](https://ant.apache.org/) and [Apache Ivy
 You can download the Analysis Tool including the source code form this [Github Repository](../Analysis)
 
 ## Excel Structure
-The analysis tool comes with a data folder where all Excel files have to be put in. (@ToDo: add data folder with sample file!) The first 8 columns are LimeSurvey specific columns (Response ID,	Date submitted,	Last page,	Start language,	Date started,	Date last action,	IP address,	Referrer URL). These columns can be configured in LimeSurvey but the Analysis tool assumes that the full structures has been exported. Starting from column 9 the excel contains survey specific columns. In our case we had a survey with 50 question groups (competences) each consisting of 3 questions. Thus, in our example file a competence always spans 3 columns where the first column contains the actual rank which is hidden for the user, the second column denotes the user rating for a given competence and the third column contains user comments. In our case, the first two columns are always filled (mandatory) but comments are optional. In total the example structure comprises 50 competences which results in 150 + 8 final columns. While the first row displays the column headers, the second row contains the actual user responses.
+The Analysis tool comes with a data folder where all Excel files have to be put in. (@ToDo: add data folder with sample file!) The first 8 columns are LimeSurvey specific columns (Response ID,	Date submitted,	Last page,	Start language,	Date started,	Date last action,	IP address,	Referrer URL). These columns can be configured in LimeSurvey but the Analysis tool assumes that the full structures has been exported. Starting from column 9 the excel contains survey specific columns. In our case we had a survey with 50 question groups (competences) each consisting of 3 questions. Thus, in our example file a competence always spans 3 columns where the first column contains the actual rank which is hidden for the user, the second column denotes the user rating for a given competence and the third column contains user comments. In our case, the first two columns are always filled (mandatory) but comments are optional. In total the example structure comprises 50 competences which results in 150 + 8 final columns. While the first row displays the column headers, the second row contains the actual user responses.
 
 ## How to run the Analysis Tool 
+Start the tool with the Ant task 
+
+```
+ant run
+```
+from the folder where the build.xml is located. The program will ask for which threshold you want to run the analysis. The threshold is related to the computation of Precision@k and Mean Average Precision and can be in the range of 0-3 refering to the three possible competence ratings _Irrelevant_, _General_, _Technical_, _Research_.
+
