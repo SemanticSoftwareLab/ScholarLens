@@ -7,7 +7,7 @@ This directory contains the raw survey responses and the computed results report
  * [results_threshold1](../Evaluation/results_threshold1) *contains the results calculated for Threshold-1 for each individual participant.*
 
 ## Naming Convention
-In the evaluation material, the survey responses are enumerated according to the following convention:
+In the evaluation material, the survey responses (and the corresponding result files) are enumerated according to the following convention:
 
 * R`n`\_`m`\_*.xlsx
 * R`n`\_RE\_`m`\_*.xlsx
